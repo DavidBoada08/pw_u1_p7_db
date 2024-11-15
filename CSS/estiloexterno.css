@@ -1,0 +1,77 @@
+/*selector generales*/
+
+* {
+    text-align: center;
+}
+
+
+
+h1 {
+    color: aquamarine;
+}
+
+h3 {
+    color: aqua;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
+button {
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.titulos{
+    color: green;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*selector por id*/
+#id_pie_pagina_uce{
+    color: burlywood;
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: blueviolet;
+    
+
+}
+/*selector de tipo atributo*/
+img[src="../img/balon.jpg"]{
+    width: 400px;
+    height: 200px;
+
+}
+
+img[src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png"]{
+    width: 300px;
+    height: 200px;
+}
+
+input[type="text"]{
+    background-color: bisque;
+    border-radius: 30px;
+}
+button:hover{
+    color: greenyellow;
+    background-color: black;
+}
+
+.titulos:hover{
+    color: brown;
+    background-color: antiquewhite;
+}
+
+/*combinacion de selectores*/
+h1,h3,h5{
+    color: red;
+    background-color: yellow;
+}
+
+
+
+
