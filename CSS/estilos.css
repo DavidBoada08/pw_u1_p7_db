@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculadora {
+    /*me permite que el contenido se va a distribuir visualmente
+    en una cuadricula*/
+    display: grid;
+    grid-template-columns: 75px 75px 75px 75px;
+    grid-template-rows: 75px 75px 75px 75px 75px 75px;
+    padding: 20px;
+    border: solid rgb(0, 153, 255);
+    border-radius: 20px;
+    background: hwb(60 75% 0%);
+    box-shadow: 8px 10px 15px 5px rgb(10, 161, 221);
+}
+
+.display{
+    grid-column: span 4;
+    font-family: 'Digital-7', sans-serif;
+    padding: 15px;
+    background: rgb(160, 228, 139);
+    border-radius: 20px;
+    text-align: right;
+    margin-bottom: 5px;
+    color: black;
+    font-size: 35px;
+
+
+    
+}
+
+.buttonC{
+    grid-column: span 2;
+    font-size: 40px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    
+}
+
+.numeros{
+    font-size: 48px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    color: white;
+    background: gray;
+}
+
+@font-face {
+    font-family: 'Digital-7';
+    src: url('../fonts/digital-7\ \(mono\).ttf') format('truetype');
+}
+.operaciones{
+    font-size: 40px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
