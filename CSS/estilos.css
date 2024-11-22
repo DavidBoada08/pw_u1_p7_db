@@ -13,12 +13,13 @@
     padding: 20px;
     border: solid rgb(0, 153, 255);
     border-radius: 20px;
-    background: hwb(60 75% 0%);
+    background: hwb(0 73% 27% / 0.63);
     box-shadow: 8px 10px 15px 5px rgb(10, 161, 221);
 }
 
-.display{
+.display {
     grid-column: span 4;
+    font-family: 'Digital-7', sans-serif;
     padding: 15px;
     background: rgb(160, 228, 139);
     border-radius: 20px;
@@ -26,16 +27,58 @@
     margin-bottom: 5px;
     color: black;
     font-size: 35px;
+    border: dashed;
+    
 
 
+
+}
+
+.buttonC {
+    grid-column: span 2;
+    font-size: 40px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+
+}
+
+.numeros {
+    font-size: 48px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    color: white;
+    background: rgb(117, 184, 223);
+}
+
+@font-face {
+    font-family: 'Digital-7';
+    src: url('../fonts/digital-7\ \(mono\).ttf') format('truetype');
+}
+
+.operaciones {
+    font-size: 40px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+button {
+    cursor: pointer;
+    margin: 3px;
+    padding:  2px;
+    border-radius: 20px;
+    border: double;
+    background: rgb(117, 184, 223);
+    color: white;
+    font-family: 'AGoblin', sans-serif;
+
+}
+
+button:hover {
+    background: rgb(229, 235, 235);
     
 }
 
-.buttonC{
-    grid-column: span 2;
-    font-size: 35px;
-}
-
-.numeros{
-    font-size: 48px;
+button:active {
+    background: rgb(136, 136, 136);
+    
 }
