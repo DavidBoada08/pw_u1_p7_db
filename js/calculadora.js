@@ -1,60 +1,58 @@
 var num1 = 0;
 var num2 = 0;
 var operacion = '';
+var expresion = ''; // Para mantener la cadena de operaciones
 
 function setearValor(valor) {
-    let valorActual = document.getElementById('id-display').innerText;
     document.getElementById('id-display').innerText = valor;
+    expresion = valor; // Reiniciar la expresión
 }
 
-function setearValorConcateando(valor) {
+function setearValorConcatenando(valor) {
     let valorActual = document.getElementById('id-display').innerText;
     document.getElementById('id-display').innerText = valorActual + valor;
+    expresion += valor; // Concatenar en la expresión
 }
 
 function recibirValor(valor) {
     let valorActual = document.getElementById('id-display').innerText;
     if (valorActual === '0' || valorActual === 'C') {
         document.getElementById('id-display').innerText = valor;
+        expresion = valor; // Iniciar nueva expresión
     } else {
         document.getElementById('id-display').innerText = valorActual + valor;
+        expresion += valor; // Concatenar en la expresión
     }
 }
 
 function recibirOperacion(op) {     
-    num1 = parseFloat(document.getElementById('id-display').innerText);
-    operacion = op;
-    document.getElementById('id-display').innerText = '';
+    let valorActual = document.getElementById('id-display').innerText;
+
+    // Si la última operación no ha sido finalizada, completar la expresión
+    if (expresion && !"+-X/".includes(expresion[expresion.length - 1])) {
+        expresion += op; // Añadir el operador a la expresión
+    }
+    document.getElementById('id-display').innerText = expresion;
+    operacion = op; // Guardar la operación actual
 }
 
 function igual() {
-    num2 = parseFloat(document.getElementById('id-display').innerText);
-    let valorFinal;
-
-    switch (operacion) {
-        case '+':
-            valorFinal = num1 + num2;
-            break;
-        case '-':
-            valorFinal = num1 - num2;
-            break;
-        case 'X':
-            valorFinal = num1 * num2;
-            break;
-        case '/':
-            valorFinal = num1 / num2;
-            break;
-        default:
-            valorFinal = num2;
-            break;
+    try {
+        // Reemplazar operadores para que sean compatibles con `eval`
+        let evaluacion = expresion.replace(/X/g, '*');
+        let resultado = eval(evaluacion); // Calcular el resultado
+        setearValor(resultado);
+        expresion = resultado.toString(); // Reiniciar la expresión con el resultado
+    } catch (e) {
+        setearValor('Error'); // Mostrar error si ocurre un problema en la evaluación
+        expresion = ''; // Reiniciar la expresión en caso de error
     }
-    setearValor(valorFinal);
-    num1 = valorFinal;  // Para permitir continuar con cálculos adicionales
 }
 
 function limpiar() {
     num1 = 0;
     num2 = 0;
     operacion = '';
-    setearValor('0');
+    expresion = ''; // Reiniciar la expresión
+    setearValor('0'); // Reiniciar el display a cero
 }
